@@ -134,7 +134,13 @@ public class MainFrame extends JFrame {
 			textFields[i].setText("");
 		}
 		
-		for(int i = 1, j = day ; i< monthDays[monthSelected]; i++, j++)
+		int lastValue = monthDays[monthSelected];
+		if(monthSelected == 1 && leapYear(yearSelected))
+		{
+			lastValue++;
+		}
+		
+		for(int i = 1, j = day ; i< lastValue; i++, j++)
 		{
 			textFields[j].setText(String.valueOf(i));
 		}
